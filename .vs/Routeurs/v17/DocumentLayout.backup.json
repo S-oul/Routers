@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Cours\\Routers\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED0DEF35-70EF-4218-BF23-165F7879CBE5}|Routeurs\\Routeurs.csproj|c:\\cours\\routers\\routeurs\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED0DEF35-70EF-4218-BF23-165F7879CBE5}|Routeurs\\Routeurs.csproj|solutionrelative:routeurs\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED0DEF35-70EF-4218-BF23-165F7879CBE5}|Routeurs\\Routeurs.csproj|C:\\Cours\\Routers\\routeurs\\switch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED0DEF35-70EF-4218-BF23-165F7879CBE5}|Routeurs\\Routeurs.csproj|solutionrelative:routeurs\\switch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED0DEF35-70EF-4218-BF23-165F7879CBE5}|Routeurs\\Routeurs.csproj|C:\\Cours\\Routers\\routeurs\\ipaddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED0DEF35-70EF-4218-BF23-165F7879CBE5}|Routeurs\\Routeurs.csproj|solutionrelative:routeurs\\ipaddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED0DEF35-70EF-4218-BF23-165F7879CBE5}|Routeurs\\Routeurs.csproj|C:\\Cours\\Routers\\routeurs\\computer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED0DEF35-70EF-4218-BF23-165F7879CBE5}|Routeurs\\Routeurs.csproj|solutionrelative:routeurs\\computer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IpAddress.cs",
+              "DocumentMoniker": "C:\\Cours\\Routers\\Routeurs\\IpAddress.cs",
+              "RelativeDocumentMoniker": "Routeurs\\IpAddress.cs",
+              "ToolTip": "C:\\Cours\\Routers\\Routeurs\\IpAddress.cs",
+              "RelativeToolTip": "Routeurs\\IpAddress.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T09:29:12.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Cours\\Routers\\Routeurs\\Program.cs",
+              "RelativeDocumentMoniker": "Routeurs\\Program.cs",
+              "ToolTip": "C:\\Cours\\Routers\\Routeurs\\Program.cs",
+              "RelativeToolTip": "Routeurs\\Program.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAIwJ8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T09:29:10.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Computer.cs",
+              "DocumentMoniker": "C:\\Cours\\Routers\\Routeurs\\Computer.cs",
+              "RelativeDocumentMoniker": "Routeurs\\Computer.cs",
+              "ToolTip": "C:\\Cours\\Routers\\Routeurs\\Computer.cs",
+              "RelativeToolTip": "Routeurs\\Computer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T09:29:06.968Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Switch.cs",
+              "DocumentMoniker": "C:\\Cours\\Routers\\Routeurs\\Switch.cs",
+              "RelativeDocumentMoniker": "Routeurs\\Switch.cs",
+              "ToolTip": "C:\\Cours\\Routers\\Routeurs\\Switch.cs",
+              "RelativeToolTip": "Routeurs\\Switch.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwDIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T09:29:03.339Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
