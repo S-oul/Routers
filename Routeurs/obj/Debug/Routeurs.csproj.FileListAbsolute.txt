@@ -12,3 +12,11 @@ C:\Cours\Routers\Routeurs\obj\Debug\Routeurs.csproj.AssemblyReference.cache
 C:\Cours\Routers\Routeurs\obj\Debug\Routeurs.csproj.CoreCompileInputs.cache
 C:\Cours\Routers\Routeurs\obj\Debug\Routeurs.exe
 C:\Cours\Routers\Routeurs\obj\Debug\Routeurs.pdb
+D:\Jeu\C#\Routers\Routeurs\obj\Debug\Routeurs.exe
+D:\Jeu\C#\Routers\Routeurs\obj\Debug\Routeurs.pdb
+D:\Jeu\C#\Routers\Routeurs\bin\Debug\Routeurs.exe.config
+D:\Jeu\C#\Routers\Routeurs\bin\Debug\Routeurs.exe
+D:\Jeu\C#\Routers\Routeurs\bin\Debug\Routeurs.pdb
+D:\Jeu\C#\Routers\Routeurs\obj\Debug\Routeurs.csproj.AssemblyReference.cache
+D:\Jeu\C#\Routers\Routeurs\obj\Debug\Routeurs.csproj.SuggestedBindingRedirects.cache
+D:\Jeu\C#\Routers\Routeurs\obj\Debug\Routeurs.csproj.CoreCompileInputs.cache

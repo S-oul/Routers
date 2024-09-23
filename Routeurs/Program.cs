@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -73,22 +74,24 @@ namespace Routeurs
 
             Console.WriteLine("Envoi de messages...");
             Random random = new Random();
-            for (int i = 0; i < 25; ++i)
+            for (int i = 0; i < 2; ++i)
             {
                 try
                 {
                     int source = random.Next(computers.Count);
                     int dest = random.Next(computers.Count);
+                    Console.WriteLine("\n \n \n");
                     Console.WriteLine("Message de {0} à {1}", computers[source].GetIpAddress().GetStringAddress(), computers[dest].GetIpAddress().GetStringAddress());
+
                     var path = ComputePath(computers[source], computers[dest]);
-                    if(path == null)
+                    if (path == null)
                     {
                         Console.WriteLine("Chemin non trouvé");
                     }
                     else
                     {
                         Console.Write("Chemin: ");
-                        foreach(Switch sw in switches)
+                        foreach (Switch sw in path)
                         {
                             Console.Write(sw.IpAddress.GetStringAddress() + " - ");
                         }
@@ -107,80 +110,86 @@ namespace Routeurs
             public Switch _switch;
             public int cout;
             public WayInfo parent;
-         
+            public bool alreadyVerified = false;
+
+
             public WayInfo(Switch newSwitch, int cout, WayInfo parent)
             {
                 this._switch = newSwitch;
                 this.cout = cout;
                 this.parent = parent;
             }
-            
+
         }
         static List<Switch> ComputePath(Computer start, Computer end)
         {
             if (end.GetConnectedSwitch().ConnectedSwitch.Count == 0 || start.GetConnectedSwitch().ConnectedSwitch.Count == 0)
             {
-                Console.WriteLine("NORWAY");
+                Console.WriteLine("Switch are not Connected");
                 return null;
             }
 
-            Switch sw = start.GetConnectedSwitch();
-            Switch dest = end.GetConnectedSwitch();
+            Switch startSwitch = start.GetConnectedSwitch();
+            Switch endSwitch = end.GetConnectedSwitch();
 
-
-            if (sw == dest)
+            if (startSwitch == endSwitch)
             {
-                Console.WriteLine("SAME");
-                List<Switch> sortie = new List<Switch>
-                {
-                    sw
-                };
-                return sortie;
+                Console.WriteLine("Start and End are the Same");
+                return new List<Switch> { startSwitch };
             }
 
-            List<WayInfo> Ways = new List<WayInfo>
-            {
-                new WayInfo(sw, 0, null)
-            };
+            List<WayInfo> Ways = new List<WayInfo>();
+            Ways.Add(new WayInfo(startSwitch, 0, null));
 
-            while (sw != dest)
+            Dictionary<Switch, int> leastCost = new Dictionary<Switch, int>();
+            leastCost[startSwitch] = 0;
+
+            Dictionary<Switch, WayInfo> shortestPaths = new Dictionary<Switch, WayInfo>();
+
+            while (Ways.Count > 0)
             {
-                foreach (Switch newSw in sw.ConnectedSwitch.Keys)
+                WayInfo current = Ways.OrderBy(way => way.cout).First();
+                Ways.Remove(current);
+                Console.WriteLine("\n");
+                Console.WriteLine($"Exploring switch: {current._switch.IpAddress.GetStringAddress()} with cost: {current.cout}");
+
+                if (current._switch == endSwitch)
                 {
-
-                    //check si newsw est déjà dans la liste
-                    int index = Ways.FindIndex(way => way._switch == newSw);
-                    if(index != -1)
+                    Console.WriteLine("Destination reached!");
+                    List<Switch> path = new List<Switch>();
+                    WayInfo temp = current;
+                    while (temp != null)
                     {
-                        //si oui: on met à jour les données si la valeur est plus petite
-                        if (Ways[index].cout < Ways.Aggregate((way, otherway) => way.cout < otherway.cout ? way : otherway).()
+                        path.Insert(0, temp._switch);
+                        temp = temp.parent;
+                    }
+                    return path;
+                }
+                if (!leastCost.ContainsKey(current._switch) || current.cout <= leastCost[current._switch])
+                {
+                    leastCost[current._switch] = current.cout;
+                    shortestPaths[current._switch] = current;
+                    Console.WriteLine($"Updating cost of : {current._switch.IpAddress.GetStringAddress()}");
+
+                    foreach (var newSw in current._switch.ConnectedSwitch)
+                    {
+                        
+                        int newCost = current.cout + newSw.Value;
+
+                        Console.WriteLine($"Checking neighborg: {newSw.Key.IpAddress.GetStringAddress()} : new cost: {newCost}");
+
+                        if (!leastCost.ContainsKey(newSw.Key) || newCost <= leastCost[newSw.Key])
                         {
-                            //et on passe à la suite: sw = plus petit cout parmi les non traités
-
-                            sw = newSw;
-                            Ways[index].cout += sw.ConnectedSwitch[newSw];
-                            break;
+                            Console.WriteLine($"Adding {newSw.Key.IpAddress.GetStringAddress()} to the list with cost: {newCost}");
+                            Ways.Add(new WayInfo(newSw.Key, newCost, current));
+                            leastCost[newSw.Key] = newCost;
                         }
-                    }else
-                    {
-                        //s'il y est pas, on l'ajoute
-                        WayInfo temp = Ways.Find(w => w._switch == sw);
-                        Ways.Add(new WayInfo(newSw, temp.cout + sw.ConnectedSwitch[newSw], temp));
                     }
                 }
             }
-            WayInfo TheWay = Ways.FindAll(way => way._switch == dest).Aggregate((way, otherway) => way.cout < otherway.cout ? way: otherway);
-            Console.WriteLine(TheWay._switch + " " + TheWay.cout);
 
-
-            List<Switch> result = new List<Switch>();
-            while (result[result.Count - 1] != dest)
-            {
-                result.Add(TheWay._switch);
-                TheWay = TheWay.parent;
-            }
-
-            return result;
+            Console.WriteLine("No path's found");
+            return null;
         }
 
     }
